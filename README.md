@@ -1,1 +1,1 @@
-Tämä on **kevään 2025ÄÄ johdantokurssin repo, tunneilla kirjoitetut demot
+Tämä on **kevään 2025** johdantokurssin repo, tunneilla kirjoitetut demot
