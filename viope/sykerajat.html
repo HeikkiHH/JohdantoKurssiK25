@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sykerajat</title>
+<!--
+Tee ohjelma, jonka avulla voidaan laskea henkilön sykerajat aerobiseen harjoitteluun. 
+Sykerajat lasketaan siten, että yläraja on (220-ikä) * 0.85 ja alaraja (220-ikä) * 0.65. 
+-->
+</head>
+
+<body>
+	<h3>Sykerajat</h3>
+
+	<form>
+		<p>
+			<label>Ikä:</label>
+			<input type="text" id="ika" size="3" value="18">
+			<input type="button" id="painike" value="Kerro" onclick="kerro()">
+		</p>
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<p id="vastaus"></p>
+
+	<script>
+		function kerro() {
+			let ikä = document.getElementById("ika").value;
+			console.log("ikä: " + ikä);
+			let alaraja = (220 - ikä) * 0.65;
+			let yläraja = (220 - ikä) * 0.85;
+			let vastaus = "Yläraja on " + yläraja.toFixed(0) + " ja alaraja on " + alaraja.toFixed(0);
+			document.getElementById("vastaus").innerHTML = vastaus;
+		}
+
+	</script>
+</body>
+
+</html>

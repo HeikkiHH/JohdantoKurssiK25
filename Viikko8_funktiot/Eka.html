@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        function koristeleHlo(nimi, ika) {
+            console.log("*********************");
+            console.log("Hei " + nimi + " " + ika + " vuotta!");
+            console.log("*********************");
+        }
+
+        function laskeVerollinenHinta(verotonhinta) {
+            let veroprosentti = 25.5;
+            let verollinenhinta = verotonhinta + verotonhinta * veroprosentti/100.0;
+            return verollinenhinta;
+        }
+
+        let hinta = 100;
+        let vh = laskeVerollinenHinta(hinta);
+        console.log("Verollinen hinta: " + vh)
+
+        let lkm = 42;
+        // function call
+        koristeleHlo("Elina", 80);
+        // function call 
+        koristeleHlo("Miika", 3);
+        // Esimerkki 2:
+        let etunimi = "Risto";
+        let hloIka = 35;
+        // function call
+        koristeleHlo(etunimi, hloIka);
+    </script>
+
+</body>
+
+</html>

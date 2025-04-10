@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hetu</title>
+</head>
+
+<body>
+    <h3>Hetu</h3>
+
+    <form>
+        <label>Hetu: </label>
+        <input type="text" id="hetu" size="11">
+        <input type="button" id="painike" value="Kerro" onclick="kerro()">
+    </form>
+
+    <p id="vastaus"></p>
+
+    <script>
+        function kerro() {
+            let hetu = document.getElementById("hetu").value;
+            let vastaus = "Hetu on kunnossa";
+            if (hetu.length != 11) {
+                vastaus = "Hetu ei ole ok";
+            }
+            else {
+                let alku = hetu.substring(1, 6);
+                if (isNaN(alku)) {
+                    vastaus = "Hetu ei ole OK";
+                }
+                else {
+                    let merkki = hetu.charAt(6);
+                    if (merkki != "-" && merkki != '+' && merkki != 'A') {
+                        vastaus = "Hetu ei ole OK";
+                    }
+                }
+            }
+            document.getElementById("vastaus").innerHTML = vastaus;
+        }
+    </script>
+</body>
+
+</html>

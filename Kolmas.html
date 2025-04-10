@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function teeJotain() {
+            let nimi = document.getElementById("nimi").value;
+            document.getElementById("vastaus").innerHTML = "Nimi on " + nimi;
+        }
+    </script>
+
+    <p>Eka tai toka esimerkki.</p>
+    <br>
+    <label>Nimi: </label>
+    <input type="text" id="nimi">
+    <button onclick="teeJotain();">Paina tästä</button>
+    <hr>
+    <div id="vastaus"></div>
+    <hr>
+</body>
+</html>

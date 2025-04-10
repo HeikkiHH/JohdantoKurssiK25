@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pvm-demoja</title>
+</head>
+<body>
+    <label for="pvm">Valitse päivä:</label>
+    <input id="pvm" type="date">
+    <button onclick="näytäPvm()">Näytä valittu päivä</button>
+    <br>
+    <button onclick="seuraavaVappu()">Mikä viikonpäivä on seuraava vappu</button>
+    <p id="tulos"></p>
+
+    <script>
+
+        function seuraavaVappu() {
+            const viikonpäivät = ["sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"];
+            let vappu = new Date("2025-05-01");
+            let viikopäivä = vappu.getDay();
+            document.getElementById("tulos").innerHTML = "Vappu on " + viikonpäivät[viikopäivä];
+        }
+
+
+        function näytäPvm() {
+            let pvm = document.getElementById("pvm").value;
+            document.getElementById("tulos").innerHTML = pvm;
+        }
+    </script>
+
+    
+</body>
+</html>

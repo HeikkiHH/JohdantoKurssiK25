@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paino</title>
+</head>
+
+<body>
+    <form> 
+        <label>Paino1:&nbsp;</label><input type="number" id="paino1" /> <br />
+        <label>Paino2:&nbsp;</label><input type="number" id="paino2" /> <br />
+        <input type="button" value="Laske summa" onclick="laskeSumma()" />
+    </form>
+    <script>
+        function laskeSumma() {
+            let hlo1Paino = Number(document.getElementById("paino1").value);
+            let hlo2Paino = Number(document.getElementById("paino2").value);
+            let yhteisPaino = hlo1Paino + hlo2Paino;
+        }
+    </script>
+
+</body>
+
+</html>

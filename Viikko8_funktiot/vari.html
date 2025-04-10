@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript esimerkki</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <h1>Vaihda väriä!</h1>
+    <!-- funktion kutsu -->
+    <button onclick="vaihdaVäri('Lightblue')">Vaihda siniseksi</button>
+    <button onclick="vaihdaVäri('Pink')">Vaihda pinkiksi</button>
+    <button onclick="vaihdaVäri('White')">Vaihda valkoiseksi</button>
+    <div id="tulos"></div>
+    <script>
+
+
+        function vaihdaVäri(väri) {
+            console.log("Vaihdan kohta väriä ==> " + väri);
+            document.body.style.backgroundColor = väri; //"#a0ebe6";
+            document.getElementById("tulos").innerHTML = "Huomasitko, väri vaihtui: " + väri;
+        }
+    </script>
+</body>
+
+</html>

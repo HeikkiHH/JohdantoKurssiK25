@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roolipeli X</title>
+</head>
+
+<body>
+    <label>Pelaajan nimi: </label>
+    <input type="text" id="nimi"> <br>
+    <button onclick="lisääPelaaja">Lisää pelaaja</button>
+    <button onclick="poistaViimeisinPelaaja()">Poista viimeinen</button>
+
+    <H5>Pelaajat</H5>
+    <div id="pelaajalista"></div>
+
+    <script>
+        let pelaajat = [];
+
+        function lisääPelaaja() {
+            let nimi = document.getElementById("nimi").value;
+            pelaajat.push(nimi);
+            console.log(pelaajat);
+            let s = "<ol>";
+            for (let i = 0; i < pelaajat.length; i++) {
+                s += "<li>" + pelaajat[i] + "</li>"; 
+            }
+            s += "</ol>";
+            document.getElementById("pelaajalista").innerHTML = s;
+        }
+
+        function poistaViimeisinPelaaja() {
+            pelaajat.pop();
+            let s = "<ol>";
+            for (let i = 0; i < pelaajat.length; i++) {
+                s += "<li>" + pelaajat[i] + "</li>"; 
+            }
+            s += "</ol>";
+            document.getElementById("pelaajalista").innerHTML = s;
+
+        }
+    </script>
+
+</body>
+
+</html>

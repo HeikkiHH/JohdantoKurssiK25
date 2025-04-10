@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuotteiden laskenta</title>
+</head>
+<body>
+    <h2>Alennuksen laskenta</h2>
+    <p>Listaa ostokset, jos enemmän kuin kolme tuotetta, saat edullisimman ilmaiseksi</p>
+    <label>Tuote: </label> <input type="text" id="nimi"><br>
+    <label>Hinta: </label> <input type="number" id="hinta"><br>
+    <button onclick="lisääTuote()">Lisää koriin</button><br>
+    <button onclick="laskehinta()">Laske lopullinen hinta</button><br>
+    <hr>
+    <p id="kori"></p>
+    <hr>
+    <p id="loppuhinta"></p>
+    <script>
+
+        let tuotteet = [];
+
+        function lisääTuote() {
+            let nimi = document.getElementById("nimi").value;
+            let hinta = Number(document.getElementById("hinta").value);
+
+            let tuote = { nimi: nimi, hinta: hinta };
+            console.log(tuote);
+            console.log("Nimi: " + tuote.nimi + " hinta: " + tuote.hinta);
+            tuotteet.push(tuote);
+            näytäKorinSisältö();
+
+        }
+
+        function näytäKorinSisältö() {
+            let s = "";
+            for (let index = 0; index < tuotteet.length; index++) {
+                s += tuotteet[index].nimi + ", hinta: " + tuotteet[index].hinta + "€<br>";
+            }
+            document.getElementById("kori").innerHTML = s;
+        }
+
+        function laskehinta() {
+            if (tuotteet.length == 0) {
+                document.getElementById("loppuhinta").innerHTML = "Ei tuotteita";
+                return;
+            }
+            let summa = 0;
+            let halvin = tuotteet[0].hinta;
+            for (let index = 0; index < tuotteet.length; index++) {
+                summa += Number(tuotteet[index].hinta);
+                if (halvin > tuotteet[index].hinta) {
+                    halvin = tuotteet[index].hinta;
+                }
+            }
+            console.log("Halvin: " +halvin);
+            if (tuotteet.length >= 3) {
+                summa -= halvin;
+            }
+            document.getElementById("loppuhinta").innerHTML = "Summa: " + summa;
+        }
+
+
+    </script>
+</body>
+</html>

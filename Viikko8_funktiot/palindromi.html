@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromi</title>
+</head>
+
+<body>
+
+    <h1>Palindromi</h1>
+    <p>Tällä voit tarkistaa onko sana tai lause palindromi.</p>
+    <label for="lause">Lause:</label> &nbsp;
+    <input type="text" id="lause"> <br>
+    <button onclick="tarkista()">Tarkista</button>
+    <p id="vastaus"></p>
+
+    <script>
+
+        function tarkistettavaLause() {
+            let teksti = document.getElementById("lause").value;
+            return teksti;
+        }
+
+        function onPalindromi(lause) {
+            // saibpuakauppias
+            let alku = 0;
+            let loppu = lause.length - 1;
+            while (alku < loppu) {
+                if (lause[alku] != lause[loppu]) {
+                    return false;
+                }
+                alku++;
+                loppu--;
+            }
+            return true;
+        }
+
+        function näytäTulos(teksti, tulos) {
+            let vastaus = "";
+            if (tulos) {
+                vastaus = "Lause:<b>" + teksti + "</b> on palindromi";
+            }
+            else {
+                vastaus = "Lause: <b>" + teksti + "</b> ei ole palindromi";
+            }
+            document.getElementById("vastaus").innerHTML = vastaus;
+        }
+
+        function tarkista() {
+            let lause = tarkistettavaLause();
+            console.log("Tarksitetava lause: " + lause);
+            let lauseOnPalindromi = onPalindromi(lause);
+            console.log("Lause: " + lause + " ==> " + lauseOnPalindromi)
+            näytäTulos(lause, lauseOnPalindromi);
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tulostusesimerkkejä</title>
+    <script>
+        // window.alert("Tervehdys!")
+        console.log("Tämä on head-osiossa")
+    </script>
+
+</head>
+<body>
+    <h1>Otsikko</h1>
+    <p>Tekstikappale jne jne...</p>
+    <script>
+        // window.alert("Jippii");
+        console.log("Tämä on body-osiossa");
+        document.write("Tämä tulostuu jonnekin, <b>joka</b> selviää kohta");
+        </script>
+    <p id="kappale2">tämä on kappale numero 2 eli kakkonen</p>
+    <div id="tulos"></div>
+    <script>
+        let ikä = 10;
+        console.log(ikä);
+        document.getElementById("tulos").innerHTML = "toimiiko? " + ikä;    
+        // Number 
+ let ika; // ihmisen ikä v.
+ ika = 25; 
+ ika++; // eli ika = ika + 1; 
+ ika += 5; // eli ika = ika + 5; 
+ console.log(ika);
+// String
+let nimi = "Mai";
+nimi = "Maija";
+nimi += " Mäki";
+ // Number
+let pisteet = 2.34756;
+console.log(pisteet.toFixed(2))
+    </script>
+</body>
+</html>

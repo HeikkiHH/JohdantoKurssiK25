@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vaihda väriä</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <h1> Vaihda väriä </h1>
+    <button onclick="vaihdaVäri();">lightblue</button>
+    <button onclick="vaihdaVäri();">white</button>
+    <button onclick="vaihdaVäri();">pink</button>
+    <button onclick="vaihdaVäri();">azure</button>
+    <button onclick="vaihdaVäri();">black</button>
+    <p>Tällä sivulla vaihdetaan taustaväriä,kun käyttäjä painaa painiketta.</p>
+    <p id="tulos"></p>
+    <script>
+         function vaihdaVäri() {
+            let väri = event.target.innerHTML;
+            console.log("Vaihdan kohta väriä ==> " + väri);
+            document.body.style.backgroundColor = väri;
+            document.getElementById("tulos").innerHTML = "Huomasitko, taustan väri vaihtui ==> " + väri;
+        }
+        // function vaihdaSiniseksi() {
+        //     console.log("Vaihdan kohta väriä.");
+        //     document.body.style.backgroundColor = "lightblue";
+        //     document.getElementById("tulos").innerHTML = "Huomasitko, väri vaihtui!";
+        // }
+        // function vaihdaPinkiksi() {
+        //     console.log("Vaihdan kohta väriä.");
+        //     document.body.style.backgroundColor = "pink";
+        //     document.getElementById("tulos").innerHTML = "Huomasitko, väri vaihtui!";
+        // }
+    </script>
+</body>
+
+</html>

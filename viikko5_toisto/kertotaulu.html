@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kertotaulu</title>
+</head>
+<body>
+    Luku: <input type="number" min="1" max="10" id="luku" value="1">    <br>
+    Koko: <input type="number" id="koko" value="10">    <br>
+    <button onclick="tulostaKertotaulu();">Tulosta</button>
+    <p id="kertotaulu"></p>
+
+    <script>
+
+        function tulostaKertotaulu() {
+
+            let luku = Number(document.getElementById("luku").value);
+            let koko = Number(document.getElementById("koko").value);
+            let tulos = "";
+
+            for (let kerroin = 1 ; kerroin <= koko ; kerroin++) {
+                tulos += kerroin + " * " + luku + " = " + luku * kerroin + "<br>";
+            }
+                        
+            document.getElementById("kertotaulu").innerHTML = tulos;
+        }
+
+
+    </script>
+    
+</body>
+</html>

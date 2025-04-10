@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+
+<body>
+    
+    <h2>Ensimmäinen esimerkki laskennasta</h2>
+
+    <p>Tässä on ensimmäinen sivu, 
+          joka ehkä tekee jotain....</p>
+    
+    <form>
+        <label>Teksti: </label>
+        <input type="text" id="teksti" value="kukkuu"> <br>
+        <input type="button" value="Laske tekstin pituus"
+        onclick="laskePituus();">
+    </form>
+    <p id="tulos">(Ei vielä laskettu)</p>
+
+    <script>
+
+        function laskePituus() {
+            console.log("Nappia on painettu");
+            let teksti = document.getElementById("teksti").value;
+            let pituus = teksti.length;
+            console.log("Pituus: " + pituus);
+            let tulos = "Tekstin pituus on " + pituus + " merkkiä";
+            document.getElementById("tulos").innerHTML = tulos;
+        }
+
+        let teksti = document.getElementById("teksti").value;
+        console.log("teksti on: " + teksti)
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form><label>Pituus:&nbsp;</label> <br> <input type="number" id="pituus" value="180" /> cm
+        <br><label>Paino:&nbsp;</label><br> <input type="number" id="paino" value="75"/> kg
+        <br><br>
+        <input type="button" value="Laske painoindeksi" onclick="laskePainoindeksi()" />
+    </form>
+    <br>
+    <div id="tulos"> </div>
+    <script>
+        let muuttuja = "NiksNaks";
+        function laskePainoindeksi() {
+            console.log(muuttuja);
+            muuttuja = "muutettu";
+            let pituus = Number(document.getElementById("pituus").value);
+            let paino = Number(document.getElementById("paino").value);
+            pituus = pituus / 100;
+            let painoindeksi = paino / (pituus * pituus);
+            document.getElementById("tulos").innerHTML = "Painoindeksi " + painoindeksi.toFixed(1);
+        }
+        console.log(muuttuja);
+    </script
+</body>
+</html>

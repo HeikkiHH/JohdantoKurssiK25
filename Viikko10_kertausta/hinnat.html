@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Hintoja pörssisähköön liittyen</h2>
+    <button onclick="laskeKeskiarvo()">Laske keskiarvo</button>
+    <button onclick="näytäHinnat()">Näytä hinnat</button>
+    <br><p id="vastaus"></p>
+    <br><div id="taulukko"></div>
+
+    <script>
+
+        let data = '[{"price":-0.178,"startDate":"2025-04-03T21:00:00.000Z","endDate":"2025-04-03T22:00:00.000Z"},{"price":-0.243,"startDate":"2025-04-03T20:00:00.000Z","endDate":"2025-04-03T21:00:00.000Z"},{"price":-0.242,"startDate":"2025-04-03T19:00:00.000Z","endDate":"2025-04-03T20:00:00.000Z"},{"price":-0.203,"startDate":"2025-04-03T18:00:00.000Z","endDate":"2025-04-03T19:00:00.000Z"},{"price":-0.202,"startDate":"2025-04-03T17:00:00.000Z","endDate":"2025-04-03T18:00:00.000Z"},{"price":-0.212,"startDate":"2025-04-03T16:00:00.000Z","endDate":"2025-04-03T17:00:00.000Z"},{"price":-0.297,"startDate":"2025-04-03T15:00:00.000Z","endDate":"2025-04-03T16:00:00.000Z"},{"price":-0.239,"startDate":"2025-04-03T14:00:00.000Z","endDate":"2025-04-03T15:00:00.000Z"},{"price":-0.253,"startDate":"2025-04-03T13:00:00.000Z","endDate":"2025-04-03T14:00:00.000Z"},{"price":-0.404,"startDate":"2025-04-03T12:00:00.000Z","endDate":"2025-04-03T13:00:00.000Z"},{"price":-0.601,"startDate":"2025-04-03T11:00:00.000Z","endDate":"2025-04-03T12:00:00.000Z"},{"price":-0.293,"startDate":"2025-04-03T10:00:00.000Z","endDate":"2025-04-03T11:00:00.000Z"},{"price":-0.105,"startDate":"2025-04-03T09:00:00.000Z","endDate":"2025-04-03T10:00:00.000Z"},{"price":-0.001,"startDate":"2025-04-03T08:00:00.000Z","endDate":"2025-04-03T09:00:00.000Z"},{"price":-0.002,"startDate":"2025-04-03T07:00:00.000Z","endDate":"2025-04-03T08:00:00.000Z"},{"price":0.006,"startDate":"2025-04-03T06:00:00.000Z","endDate":"2025-04-03T07:00:00.000Z"},{"price":0.09,"startDate":"2025-04-03T05:00:00.000Z","endDate":"2025-04-03T06:00:00.000Z"},{"price":0.056,"startDate":"2025-04-03T04:00:00.000Z","endDate":"2025-04-03T05:00:00.000Z"},{"price":0,"startDate":"2025-04-03T03:00:00.000Z","endDate":"2025-04-03T04:00:00.000Z"},{"price":-0.001,"startDate":"2025-04-03T02:00:00.000Z","endDate":"2025-04-03T03:00:00.000Z"},{"price":-0.001,"startDate":"2025-04-03T01:00:00.000Z","endDate":"2025-04-03T02:00:00.000Z"},{"price":0.001,"startDate":"2025-04-03T00:00:00.000Z","endDate":"2025-04-03T01:00:00.000Z"},{"price":0.019,"startDate":"2025-04-02T23:00:00.000Z","endDate":"2025-04-03T00:00:00.000Z"},{"price":0.181,"startDate":"2025-04-02T22:00:00.000Z","endDate":"2025-04-02T23:00:00.000Z"},{"price":0.257,"startDate":"2025-04-02T21:00:00.000Z","endDate":"2025-04-02T22:00:00.000Z"},{"price":0.349,"startDate":"2025-04-02T20:00:00.000Z","endDate":"2025-04-02T21:00:00.000Z"},{"price":0.4,"startDate":"2025-04-02T19:00:00.000Z","endDate":"2025-04-02T20:00:00.000Z"},{"price":0.398,"startDate":"2025-04-02T18:00:00.000Z","endDate":"2025-04-02T19:00:00.000Z"},{"price":0.448,"startDate":"2025-04-02T17:00:00.000Z","endDate":"2025-04-02T18:00:00.000Z"},{"price":0.43,"startDate":"2025-04-02T16:00:00.000Z","endDate":"2025-04-02T17:00:00.000Z"},{"price":0.895,"startDate":"2025-04-02T15:00:00.000Z","endDate":"2025-04-02T16:00:00.000Z"},{"price":0.284,"startDate":"2025-04-02T14:00:00.000Z","endDate":"2025-04-02T15:00:00.000Z"},{"price":-0.004,"startDate":"2025-04-02T13:00:00.000Z","endDate":"2025-04-02T14:00:00.000Z"},{"price":-0.03,"startDate":"2025-04-02T12:00:00.000Z","endDate":"2025-04-02T13:00:00.000Z"},{"price":-0.036,"startDate":"2025-04-02T11:00:00.000Z","endDate":"2025-04-02T12:00:00.000Z"},{"price":-0.004,"startDate":"2025-04-02T10:00:00.000Z","endDate":"2025-04-02T11:00:00.000Z"},{"price":0.147,"startDate":"2025-04-02T09:00:00.000Z","endDate":"2025-04-02T10:00:00.000Z"},{"price":0.363,"startDate":"2025-04-02T08:00:00.000Z","endDate":"2025-04-02T09:00:00.000Z"},{"price":0.262,"startDate":"2025-04-02T07:00:00.000Z","endDate":"2025-04-02T08:00:00.000Z"},{"price":0.197,"startDate":"2025-04-02T06:00:00.000Z","endDate":"2025-04-02T07:00:00.000Z"},{"price":0.02,"startDate":"2025-04-02T05:00:00.000Z","endDate":"2025-04-02T06:00:00.000Z"},{"price":-0.002,"startDate":"2025-04-02T04:00:00.000Z","endDate":"2025-04-02T05:00:00.000Z"},{"price":-0.083,"startDate":"2025-04-02T03:00:00.000Z","endDate":"2025-04-02T04:00:00.000Z"},{"price":-0.196,"startDate":"2025-04-02T02:00:00.000Z","endDate":"2025-04-02T03:00:00.000Z"},{"price":-0.206,"startDate":"2025-04-02T01:00:00.000Z","endDate":"2025-04-02T02:00:00.000Z"},{"price":-0.243,"startDate":"2025-04-02T00:00:00.000Z","endDate":"2025-04-02T01:00:00.000Z"},{"price":-0.232,"startDate":"2025-04-01T23:00:00.000Z","endDate":"2025-04-02T00:00:00.000Z"},{"price":-0.193,"startDate":"2025-04-01T22:00:00.000Z","endDate":"2025-04-01T23:00:00.000Z"}]';
+        data = '[{"price":0.772,"startDate":"2025-04-10T21:00:00.000Z","endDate":"2025-04-10T22:00:00.000Z"},{"price":0.998,"startDate":"2025-04-10T20:00:00.000Z","endDate":"2025-04-10T21:00:00.000Z"},{"price":1.113,"startDate":"2025-04-10T19:00:00.000Z","endDate":"2025-04-10T20:00:00.000Z"},{"price":1.147,"startDate":"2025-04-10T18:00:00.000Z","endDate":"2025-04-10T19:00:00.000Z"},{"price":1.268,"startDate":"2025-04-10T17:00:00.000Z","endDate":"2025-04-10T18:00:00.000Z"},{"price":1.279,"startDate":"2025-04-10T16:00:00.000Z","endDate":"2025-04-10T17:00:00.000Z"},{"price":1.274,"startDate":"2025-04-10T15:00:00.000Z","endDate":"2025-04-10T16:00:00.000Z"},{"price":1.089,"startDate":"2025-04-10T14:00:00.000Z","endDate":"2025-04-10T15:00:00.000Z"},{"price":0.889,"startDate":"2025-04-10T13:00:00.000Z","endDate":"2025-04-10T14:00:00.000Z"},{"price":0.439,"startDate":"2025-04-10T12:00:00.000Z","endDate":"2025-04-10T13:00:00.000Z"},{"price":2.505,"startDate":"2025-04-10T11:00:00.000Z","endDate":"2025-04-10T12:00:00.000Z"},{"price":5.64,"startDate":"2025-04-10T10:00:00.000Z","endDate":"2025-04-10T11:00:00.000Z"},{"price":7.467,"startDate":"2025-04-10T09:00:00.000Z","endDate":"2025-04-10T10:00:00.000Z"},{"price":10.04,"startDate":"2025-04-10T08:00:00.000Z","endDate":"2025-04-10T09:00:00.000Z"},{"price":15.819,"startDate":"2025-04-10T07:00:00.000Z","endDate":"2025-04-10T08:00:00.000Z"},{"price":17.67,"startDate":"2025-04-10T06:00:00.000Z","endDate":"2025-04-10T07:00:00.000Z"},{"price":22.668,"startDate":"2025-04-10T05:00:00.000Z","endDate":"2025-04-10T06:00:00.000Z"},{"price":16.314,"startDate":"2025-04-10T04:00:00.000Z","endDate":"2025-04-10T05:00:00.000Z"},{"price":5.494,"startDate":"2025-04-10T03:00:00.000Z","endDate":"2025-04-10T04:00:00.000Z"},{"price":1.406,"startDate":"2025-04-10T02:00:00.000Z","endDate":"2025-04-10T03:00:00.000Z"},{"price":1.005,"startDate":"2025-04-10T01:00:00.000Z","endDate":"2025-04-10T02:00:00.000Z"},{"price":0.976,"startDate":"2025-04-10T00:00:00.000Z","endDate":"2025-04-10T01:00:00.000Z"},{"price":0.656,"startDate":"2025-04-09T23:00:00.000Z","endDate":"2025-04-10T00:00:00.000Z"},{"price":0.526,"startDate":"2025-04-09T22:00:00.000Z","endDate":"2025-04-09T23:00:00.000Z"},{"price":0.282,"startDate":"2025-04-09T21:00:00.000Z","endDate":"2025-04-09T22:00:00.000Z"},{"price":0.373,"startDate":"2025-04-09T20:00:00.000Z","endDate":"2025-04-09T21:00:00.000Z"},{"price":0.233,"startDate":"2025-04-09T19:00:00.000Z","endDate":"2025-04-09T20:00:00.000Z"},{"price":0.158,"startDate":"2025-04-09T18:00:00.000Z","endDate":"2025-04-09T19:00:00.000Z"},{"price":0.158,"startDate":"2025-04-09T17:00:00.000Z","endDate":"2025-04-09T18:00:00.000Z"},{"price":0.354,"startDate":"2025-04-09T16:00:00.000Z","endDate":"2025-04-09T17:00:00.000Z"},{"price":0.302,"startDate":"2025-04-09T15:00:00.000Z","endDate":"2025-04-09T16:00:00.000Z"},{"price":0.154,"startDate":"2025-04-09T14:00:00.000Z","endDate":"2025-04-09T15:00:00.000Z"},{"price":0.001,"startDate":"2025-04-09T13:00:00.000Z","endDate":"2025-04-09T14:00:00.000Z"},{"price":0,"startDate":"2025-04-09T12:00:00.000Z","endDate":"2025-04-09T13:00:00.000Z"},{"price":-0.001,"startDate":"2025-04-09T11:00:00.000Z","endDate":"2025-04-09T12:00:00.000Z"},{"price":0.025,"startDate":"2025-04-09T10:00:00.000Z","endDate":"2025-04-09T11:00:00.000Z"},{"price":0.438,"startDate":"2025-04-09T09:00:00.000Z","endDate":"2025-04-09T10:00:00.000Z"},{"price":0.359,"startDate":"2025-04-09T08:00:00.000Z","endDate":"2025-04-09T09:00:00.000Z"},{"price":0.156,"startDate":"2025-04-09T07:00:00.000Z","endDate":"2025-04-09T08:00:00.000Z"},{"price":0.092,"startDate":"2025-04-09T06:00:00.000Z","endDate":"2025-04-09T07:00:00.000Z"},{"price":0.013,"startDate":"2025-04-09T05:00:00.000Z","endDate":"2025-04-09T06:00:00.000Z"},{"price":-0.001,"startDate":"2025-04-09T04:00:00.000Z","endDate":"2025-04-09T05:00:00.000Z"},{"price":0,"startDate":"2025-04-09T03:00:00.000Z","endDate":"2025-04-09T04:00:00.000Z"},{"price":0,"startDate":"2025-04-09T02:00:00.000Z","endDate":"2025-04-09T03:00:00.000Z"},{"price":0,"startDate":"2025-04-09T01:00:00.000Z","endDate":"2025-04-09T02:00:00.000Z"},{"price":0,"startDate":"2025-04-09T00:00:00.000Z","endDate":"2025-04-09T01:00:00.000Z"},{"price":-0.001,"startDate":"2025-04-08T23:00:00.000Z","endDate":"2025-04-09T00:00:00.000Z"},{"price":-0.002,"startDate":"2025-04-08T22:00:00.000Z","endDate":"2025-04-08T23:00:00.000Z"}]';
+        let hinnat = JSON.parse(data)
+
+        function näytäHinnat() {
+            let s = '<table > ';
+            s += "<tr><th>Tunti</th><th>Hinta</th></tr>";
+            for (let i = 0; i < hinnat.length; i++) {
+                let hinta = hinnat[i].price;
+                let pvm = hinnat[i].startDate;
+                let tunti = Number(pvm.substring(11, 13));
+                s += "<tr><td>" + tunti + "</td><td>" + hinta + "</td></tr>"
+            }
+            s += "</table>";
+           document.getElementById("taulukko").innerHTML = s;     
+        }
+
+
+        function laskeKeskiarvo() {
+            let summa = 0;
+            let halvinTuntihinta = hinnat[0].price;
+            let kalleinTuntihinta = hinnat[0].price; 
+            let lkm = hinnat.length;
+            for (let i = 0; i < hinnat.length; i++) {
+                summa += hinnat[i].price;
+                if (halvinTuntihinta > hinnat[i].price) {
+                    halvinTuntihinta = hinnat[i].price;
+                }
+                if (kalleinTuntihinta < hinnat[i].price) {
+                    kalleinTuntihinta = hinnat[i].price;
+                }
+            }
+            let ka = summa / lkm;
+            document.getElementById("vastaus").innerHTML
+                 = "Hintojen keskiarvo on " + ka.toFixed(3) 
+                 + "<br>halvin: " + halvinTuntihinta
+                 + "<br>kallein: " + kalleinTuntihinta;
+        }
+
+
+
+        // for (let i = 0; i < hinnat.length; i++) {
+        //     console.log( hinnat[i].price);;
+        // }
+    </script>
+</body>
+</html>

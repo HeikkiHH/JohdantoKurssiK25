@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taulukot 1</title>
+</head>
+
+<body>
+    <div id="vastaus"></div>
+    <script>
+        let lemmikit = ["Kissa", "Koira", "Käärme"];
+        lemmikit.push("Marsu");
+        let nimet = ["Maija", "Matti", "Meeri"];
+        let pituudet = [170, 180, 160];
+        let iat = []; // tyhjä taulukko
+
+        let s = "<ol>";
+
+        for ( let i = 0; i < lemmikit.length; i++) {
+           s += "<li>" +  lemmikit[i] + "</li>";
+        }
+        s += "</ol>";
+        document.getElementById("vastaus").innerHTML = s;
+
+    </script>
+
+</body>
+
+</html>

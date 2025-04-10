@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuoraus</title>
+</head>
+<body>
+
+    <p>Syötä kenttään viikkonumero.</p>
+    <input type="number" id="viikkonumero" value="8"> <br>
+    <button onclick="laskehinta();">Laske viikkovuokra</button>
+
+    <p id="hinta"></p>
+    
+    <script>
+        function laskehinta() {
+            let viikko = document.getElementById("viikkonumero").value;
+            let hinta = 800;
+
+            if (viikko != 8) {
+                console.log("OK");
+            }
+            if (!viikko == 8) {
+                console.log("OK");
+            } 
+  
+            // if (viikko == 8 || viikko == 9 || viikko == 10) {
+            if (viikko >= 8 && viikko <= 10 || viikko == 18) {
+                hinta = 1200;
+            } 
+            else if (viikko == 32 || viikko == 33) {
+                hinta = 1000;
+            }
+            else {
+                hinta = 800;
+            }
+            document.getElementById("hinta").innerHTML = "Viikkovuokra: " + hinta.toFixed(2) + "€";
+        }
+    </script>
+
+
+</body>
+</html>

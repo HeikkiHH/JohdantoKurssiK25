@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torstain demo</title>
+</head>
+
+<body>
+    <p id="vastaus"></p>
+
+    <script>
+        let nimi = "Aku Ankka";
+        console.log(nimi);
+        nimi = 42.24; // huono tapa 
+        console.log(nimi);
+
+        let elementti = document.getElementById("vastaus");
+
+        console.log("Elementti: " + elementti);
+        elementti.innerHTML = "Tämä on eka tuloistus";
+        
+        let hlo1Paino = 90; //kg
+        let hlo2Paino = 66; //kg
+        hlo2Paino = 67; // sijoitettu muuttujaan uusi arvo
+        let yhteispaino = hlo1Paino + hlo2Paino;
+        console.log(yhteispaino); 
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuodenaikoja</title>
+</head>
+
+<body>
+    <label>Kuukauden numero: </label>
+    <input type="number" min="1" max="12" id="kuukausi"><br>
+    <button onclick="tarkista()">Tarkista</button>
+    <br>
+    <p id="tulos"></p>
+
+    <script>
+        function tarkista() {
+            const kknimet = 
+                [ "Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä", "Heinä", 
+                "Elo", "Syys", "Loka", "Marras", "Joulu"];
+
+            let kk = Number(document.getElementById("kuukausi").value);
+            if ( kk< 1 || kk > 12) {
+                document.getElementById("tulos").innerHTML = "Tarkista syöte!";
+                return;
+            }
+            let vuodenaika = 0;
+            if (kk == 12 || kk == 1 || kk == 2) {
+                vuodenaika = "Talvi";
+            }
+            else if (kk >= 3 && kk <= 5) {
+                vuodenaika = "Kevät";
+            }
+            else if (kk >= 6 && kk <= 8) {
+                vuodenaika = "Kesä";
+            }
+            else {
+                vuodenaika = "Syksy";
+            }
+            let tulos =  "Kuuukautta vastaava vuodenaika on " + vuodenaika + "<br>"
+                + "ja kuukauden nimi on " + kknimet[ kk - 1 ];
+
+            document.getElementById("tulos").innerHTML = tulos;
+        }
+    </script>
+</body>
+
+</html>

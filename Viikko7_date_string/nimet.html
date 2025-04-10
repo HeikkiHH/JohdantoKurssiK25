@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>merkkijonokäsittelyä</title>
+</head>
+
+<body>
+    <label for="etunimi">Etunimi:</label><br>
+    <input type="text" id="etunimi"><br>
+    <label for="sukunimi">Sukunimi:</label><br>
+    <input type="text" id="sukunimi"><br>
+    <button onclick="yhdistä()">Yhdistä</button>
+    <button onclick="nimiIsolla()">Nimi isolla</button>
+    <button>Tietoja</button>
+
+    <p id="nimi"></p>
+    <p id="tietoja"></p>
+
+    <script>
+        function nimiIsolla() {
+            let nimi = "";
+            let etunimi = document.getElementById("etunimi").value;
+            let sukunimi = document.getElementById("sukunimi").value;
+
+            etunimi = etunimi.trim();
+            sukunimi = sukunimi.trim();
+
+            let ekamerkki = etunimi.charAt(0);
+            ekamerkki = ekamerkki.toUpperCase();
+            let loput = etunimi.substring(1, etunimi.length);
+            etunimi = ekamerkki + loput.toLowerCase();
+
+            ekamerkki = sukunimi.charAt(0);
+            ekamerkki = ekamerkki.toUpperCase();
+            loput = sukunimi.substring(1, sukunimi.length);
+            sukunimi = ekamerkki + loput.toLowerCase();
+
+            nimi = etunimi + " " + sukunimi;
+
+            document.getElementById("nimi").innerHTML = nimi;
+        }
+
+        function yhdistä() {
+            let nimi = "";
+            let etunimi = document.getElementById("etunimi").value;
+            let sukunimi = document.getElementById("sukunimi").value;
+
+            nimi = etunimi.trim() + " " + sukunimi.trim();
+            document.getElementById("nimi").innerHTML = nimi;
+
+            document.getElementById("tietoja").innerHTML = "Nimen pituus on " + nimi.length + " merkkiä.";
+        }
+
+        // voidaan kutsua näin: yhdistä();
+
+
+    </script>
+</body>
+
+</html>
