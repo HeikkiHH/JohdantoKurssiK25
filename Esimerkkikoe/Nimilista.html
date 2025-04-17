@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimilista-tehtävä</title>
+</head>
+<body>
+    <h3>Nimilista</h3>
+    <p>Syötä nimiä kenttää ja lisää ne painonapilla listalle.</p>
+
+    <label for="nimi">Nimi:</label> <input id="nimi" > <br>
+    <button  onclick="lisaaNimi()">Lisää nimi</button>
+    <hr>
+    <h4>Nimilista:</h4>
+    <p id="vastaus"></p>
+    <script>
+        let nimet = []; // tarvitaan taulukko, johon nimet lisätään
+
+        function onNimiListalla(nimi, nimilista) {
+
+            for (let i = 0; i < nimilista.length;i++) {
+                if (nimi == nimilista[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function lisaaNimi() {
+            // lue kentästä nimi
+            let nimi = document.getElementById("nimi").value;
+            
+            // tarkista onko nimi jo taulukossa ( en muista miten ==> teen oman funktion, muutoin käyttäisin indexOf tai includes -funktioita)
+            let nimiOnJoListalla = onNimiListalla(nimi, nimet)
+            
+            // voi tehdä myös näin
+            //let nimiOnJoListalla = nimet.indexOf(nimi) >= 0;
+            //let nimiOnJoListalla = nimet.includes(nimi);
+
+            // jos on, anna alertilla virheilmoitus käyttäjälle
+            if (nimiOnJoListalla ) {
+                alert("Nimi on jo listalla!");
+            }
+            else { // jos ei ole, lisää taulukkoon, lajittele ja tulosta vastaus-elementtiin
+                nimet.push(nimi); // push lisää taulukon viimeiseksi alkioksi
+                nimet.sort(); // lajitellaan nimet järjestykseen
+                tulostaNimet(nimet);
+            }
+
+            // miten tarkistat onko nimi jo taulukossa?
+            // mieti miten tulostat nimet, kannattaako käyttää funktiota?
+            // HUOM.: kokeessa tehtävään voi liittyä vaatimus tulostuksesta omassa funktiossa 
+            // ja sille pitää välittää nimitaulukko parametrina
+        }
+
+        function tulostaNimet(nimilista) {
+            let nl = "";
+            for(let i = 0; i < nimilista.length; i++) {
+                nl += nimilista[i] + "<br>";
+            }
+            document.getElementById("vastaus").innerHTML = nl;
+        }
+    </script>
+
+</body>
+</html>
